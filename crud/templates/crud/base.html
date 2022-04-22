@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>
+    JenGyy - {% block title %}Home{% endblock %}
+    </title>
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" type="text/css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/simplePagination.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="{% static 'lib/css/bootstrap.min.css' %}" type="text/css">
+</head>    
+<body>
+    <div id="main">
+        <!-- navbar -->
+        <div id="header">
+            <h1><a href="/crud">JenGyy</a></h1>
+            <div class="nav">
+                <ul>
+                    <li><a href="/crud">Project</a></li>
+                    <li><a href="/crud/developer/">Developer</a></li>
+                    <li><a href="/admin/">Dashboard</a></li>
+                    <li>
+                        <form class="search-container">
+                            <input
+                            id="search-box"
+                            type="text"
+                            class="search-box"
+                            name="search"
+                            onkeyup="searchFunction()"
+                            />
+                            <input type="submit" id="search-submit" />
+                        </form>
+                    </li>
+                    <li><i class="fa-solid fa-user"></i></li>
+                </ul>
+            </div>
+        </div>  
+        {% block content %}
+        {% endblock content %}        
+    {% block script %}
+    <script type="text/javascript" src="{% static 'assets/js/jquery-3.3.1.min.js' %}"></script> 
+    <script type="text/javascript" src="{% static 'assets/js/script.js' %}"></script> 
+    <script src="https://kit.fontawesome.com/10053f200c.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{% static 'lib/js/bootstrap.min.js' %}"></script> 
+    <script type="text/javascript" src='https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.min.js"></script> 
+    <script src="{% static 'lib/js/bootstrap.bundle.min.js' %}"></script> 
+    {% endblock script %}
+</body>
+</html>
