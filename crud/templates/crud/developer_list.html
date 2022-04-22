@@ -15,23 +15,6 @@
                             <a href="/crud/developer-create/">New Developer</a>
                         </button>
                     </div>
-                    <div class="right-column-10">
-                            <div class="large-6 columns">
-                                <label for="start">Start Date</label>
-                                <input id="inputStartDate" type="date" /><br/>
-                            </div>
-                            <div class="large-6 columns">
-                                <label for="end">End Date</label>
-                                <input id="inputEndDate" type="date" /><br />
-                            </div>
-                            <div class="large-12 columns">
-                                <button class="button radius" id="filter" onclick="filterDay()">Filter</button>
-                                <button id="clearFilter" class="button radius secondary" onclick="location.reload();">
-                                    Clear Filter
-                                </button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <!-- table --> 
                 <table id="tableProject" class="display" data-page-length="10" data-order="[[ 1, &quot;asc&quot; ]]">
@@ -47,7 +30,7 @@
                     </thead>
                     <tbody class="table-hover">
                         
-                        {% for object in object_list %}
+                        {% for object in object_list %}:
                         <tr>
                             <td class="text-left">{{object.developer_id}}</td>
                             <td class="text-left">{{object.last_name}}</td>
@@ -58,7 +41,7 @@
                                 <div class="dropdown">
                                 <button class="bt_dropdown">Dropdown</button>
                                 <div class="nd_dropdown">
-                                    <a href="/crud/update-project/">Update</a>
+                                    <a href="/crud/developeper/">Update</a>
                                     <a href="/crud/developer/">Remove</a>
                                 </div>
                                 </div>

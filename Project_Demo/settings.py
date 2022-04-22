@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from msilib.schema import Feature
 from pathlib import Path
 import os
+from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -44,17 +45,22 @@ INSTALLED_APPS = [
     'corsheaders',
     'crud',
     'crispy_forms',
+    "translation_manager",
 ]
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
+    "django.middleware.common.CommonMiddleware",
 ]
 
 ROOT_URLCONF = 'Project_Demo.urls'
@@ -119,7 +125,27 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
+
+# LANGUAGES = (
+#     ('en', _('English')),
+#     ('vi', _('Viet Nam')),
+# )
+
+LOCALE_PATHS = [
+    BASE_DIR / 'locale/',
+]
+
+# PARLER_LANGUAGES = {
+#     None: (
+#         {'code': 'en',}, 
+#         {'code': 'vi',}, 
+#     ),
+#     'default': {
+#         'fallbacks': ['en'],
+#         'hide_untranslated': False,
+#     }
+# }
 
 TIME_ZONE = 'UTC'
 
@@ -141,3 +167,10 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 DATE_FORMAT = "d-m-y"
+
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'crud/locale')
+]
+
+LANGUAGE_SESSION_KEY = 'session_language_crud'
+LANGUAGE_COOKIE_NAME = 'cookie_language_crud' 

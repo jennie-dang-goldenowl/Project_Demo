@@ -48,7 +48,7 @@
                             <th class="text-left">ID</th>
                             <th class="text-left">Project</th>
                             <th class="text-left">Description</th>
-                            <th class="text-left">Start Date</th>
+                            <th class="text-l eft">Start Date</th>
                             <th class="text-left">End date</th>
                             <th class="text-left">Cost</th>
                             <th class="text-left">Developer</th>
@@ -69,13 +69,37 @@
                                 <div class="dropdown">
                                 <button class="bt_dropdown">Dropdown</button>
                                 <div class="nd_dropdown">
-                                    <a href="project-update/<int:pk>">Update</a>
-                                    <a href="/crud/">Remove</a>
+                                    <a href="">Update</a>
+                                    <a href="">Remove</a>
                                 </div>
                                 </div>
                             </td>
                         </tr>
                         {% endfor %}
+
+                        <div style="margin-left = 70%">
+                        {% if is_paginated %}
+                        <ul class="pagination">
+                          {% if page_obj.has_previous %}
+                            <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+                          {% else %}
+                            <li class="disabled"><span>&laquo;</span></li>
+                          {% endif %}
+                          {% for i in paginator.page_range %}
+                            {% if page_obj.number == i %}
+                              <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                            {% else %}
+                              <li><a href="?page={{ i }}">{{ i }}</a></li>
+                            {% endif %}
+                          {% endfor %}
+                          {% if page_obj.has_next %}
+                            <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+                          {% else %}
+                            <li class="disabled"><span>&raquo;</span></li>
+                          {% endif %}
+                        </ul>
+                      {% endif %}
+                    </div>
 
                     </tbody>
                 </table>

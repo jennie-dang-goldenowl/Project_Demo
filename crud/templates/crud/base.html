@@ -4,6 +4,7 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     {% load static %}
+    {% load i18n%}
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>
     JenGyy - {% block title %}Home{% endblock %}
@@ -24,12 +25,15 @@
                     <li><a href="/crud/developer/">Developer</a></li>
                     <li><a href="/admin/">Dashboard</a></li>
                     <li>
-                        <form class="search-container">
+
+                    </li>
+                    <li>
+                        <form action="{%url 'search_results'}" class="search-container" method="get">
                             <input
                             id="search-box"
-                            type="text"
+                            type="search"
                             class="search-box"
-                            name="search"
+                            name="q"
                             onkeyup="searchFunction()"
                             />
                             <input type="submit" id="search-submit" />
