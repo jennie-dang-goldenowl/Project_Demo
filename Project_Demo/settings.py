@@ -10,15 +10,15 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
-from msilib.schema import Feature
 from pathlib import Path
 import os
 from django.utils.translation import gettext_lazy as _
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+# Build paths inside the project like this: BASE_DIR / 'subdir'.\
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
+os.path.join(BASE_DIR, 'boot'),
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -46,6 +46,9 @@ INSTALLED_APPS = [
     'crud',
     'crispy_forms',
     "translation_manager",
+    "django_pagination_bootstrap",
+    'bootstrap_datepicker_plus',
+    'django.contrib.postgres',
 ]
 
 MIDDLEWARE = [
@@ -61,6 +64,7 @@ MIDDLEWARE = [
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
+    "django_pagination_bootstrap.middleware.PaginationMiddleware",
 ]
 
 ROOT_URLCONF = 'Project_Demo.urls'
@@ -78,6 +82,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                "django.template.context_processors.request"
             ],
             'libraries' : {
                 'staticfiles': 'django.templatetags.static', 

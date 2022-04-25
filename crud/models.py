@@ -21,6 +21,7 @@ info_lang = (
     ('Java', 'Java'),
     ('Ruby', 'Ruby'),
     ('Javascript', 'Javascript'),
+    ('Others', 'Others')
 )
 
 #Model Developer_
@@ -34,9 +35,6 @@ class Developer(models.Model):
             choices= info_lang,
             default= '1'
     )
-
-    def get_absolute_url(self):
-        return reverse('project_list')
 
     def __str__(self):
         return self.first_name +' '+ self.last_name

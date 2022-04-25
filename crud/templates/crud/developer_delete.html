@@ -1,31 +1,13 @@
 {% extends 'crud/base.html' %}
+{% load crispy_forms_tags %}
 
-
-{% block main_page_title %}
-{{ main_page_title }}
-{% endblock main_page_title %}
-
-
-{% block breadcumb %}
-<li><a href="{% url 'developers:developer_list' %}">{{ panel_name }}</a></li>
-<li class="active">{{ panel_title }}</li>
-{% endblock breadcumb %}
-
-{% block panel %}
-<div class="col-md-8 col-md-offset-2">
-    <div class="panel">
-        <div class="panel-heading">
-            <div class="panel-title">
-                <h5>{{ panel_title }}</h5>
-            </div>
-        </div>
-        <div class="panel-body">
-            <form action="{% url 'submit' %}" method="post" class="form">{% csrf_token %}
-                <h2>Are you sure you want to delete developer "{{ object }}" info ?</h2>
-                <input type="submit" value="Confirm" class="btn btn-danger">
-                <button class = create><a href="{% url 'developer_list' %}"> Cancel</a></button>
-            </form>
-        </div>
-    </div>
-</div>
-{% endblock panel %}
+{% block content %}
+    <div class="d-flex justify-content-center">
+        <form method="post" class="form">{% csrf_token %}
+            <h2>Are you sure you want to delete developer "{{ object.first_name }}" info ?</h2>
+            <button class = create type="submit" name="Confirm" class="btn btn-success btn-labeled">Submit<span class="btn-label btn-label-right"><i
+                class="fa fa-check"></i></span></button>
+            <button class = create><a href="/developer_list"> Cancel</a></button>
+        </form>
+    </div>  
+{% endblock content %}
