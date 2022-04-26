@@ -14,7 +14,6 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="{% static 'lib/css/bootstrap.min.css' %}" type="text/css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" crossorigin="anonymous" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" rel="stylesheet"/>
-
     {{ form.media }}
 </head>    
 <body>
@@ -28,21 +27,18 @@
                     <li><a href="/crud/developer/">Developer</a></li>
                     <li><a href="/admin/">Dashboard</a></li>
                     <li>
-
-                    </li>
-                    <li>
-                        <form action="{%url 'search_results'}" class="search-container" method="get">
+                        <form action="{% url 'project_search_list_view' %}" class="search-container" method="get" accept-charset="utf-8">
                             <input
                             id="search-box"
                             type="search"
                             class="search-box"
                             name="q"
-                            onkeyup="searchFunction()"
                             />
                             <input type="submit" id="search-submit" />
-                        </form>
+                        </form>        
+
                     </li>
-                    <li><i class="fa-solid fa-user"></i></li>
+                    <li><i class="far fa-globe"></i></li>
                 </ul>
             </div>
         </div>  

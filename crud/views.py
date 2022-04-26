@@ -1,10 +1,14 @@
-from django.views.generic import CreateView, ListView, UpdateView, DeleteView
+from re import template
+from django.views.generic import CreateView, ListView, UpdateView
+from django.views.generic.edit import DeleteView
 from django.shortcuts import render
 from django.core.paginator import Paginator
 from .models import Project, Developer
 from .forms import ProjectForm, DeveloperForm
 from django.urls import reverse_lazy
-#from bootstrap_datepicker_plus.widgets import DateTimePickerInput
+import operator
+from django.db.models import Q
+from functools import reduce
 
 class ProjectCreateView(CreateView):
     model = Project
@@ -47,7 +51,7 @@ class DeveloperUpdateView(UpdateView):
         return super(DeveloperUpdateView, self).form_valid(form)
 class ProjectDeleteView(DeleteView):
     model = Project
-    template_name = "crud/project_delete.html"
+    template_name = 'crud/project_delete.html'
     success_url = reverse_lazy('project_list')
 
     def get_context_data(self, **kwargs):
@@ -55,7 +59,7 @@ class ProjectDeleteView(DeleteView):
         return context
 class DeveloperDeleteView(DeleteView):
     model = Developer
-    template_name = "crud/developer_delete.html"
+    template_name = 'crud/developer_delete.html'
     success_url = reverse_lazy('developer_list')
 
     def get_context_data(self, **kwargs):
@@ -94,3 +98,33 @@ class DeveloperListView(ListView):
         context = super().get_context_data(**kwargs)
         context['field_list']   =   self.field_list
         return context
+
+class ProjectSearchListView(ProjectListView):
+    paginate_by = 5
+    def get_queryset(self):
+        result = super(ProjectSearchListView, self).get_queryset()
+        query = self.request.GET.get('q')
+        if query:
+            query_list = query.split()
+            result = result.filter(
+                reduce(operator.and_,
+                       (Q(name__icontains=q) for q in query_list)) |
+                reduce(operator.and_,
+                       (Q(name__icontains=q) for q in query_list))
+            )
+        return result
+
+class ProjectFilterListView(ProjectListView):
+    paginate_by = 5
+    def get_queryset(self):
+        result = super(ProjectFilterListView, self).get_queryset()
+        query = self.request.GET.get('q')
+        if query:
+            query_list = query.split()
+            result = result.filter(
+                reduce(operator.and_,
+                       (Q(name__icontains=q) for q in query_list)) |
+                reduce(operator.and_,
+                       (Q(name__icontains=q) for q in query_list))
+            )
+        return result

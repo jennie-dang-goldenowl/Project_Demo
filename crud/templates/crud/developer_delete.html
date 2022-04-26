@@ -2,12 +2,14 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-    <div class="d-flex justify-content-center">
+    <div style="padding-top: 15%" class="d-flex justify-content-center">
         <form method="post" class="form">{% csrf_token %}
             <h2>Are you sure you want to delete developer "{{ object.first_name }}" info ?</h2>
-            <button class = create type="submit" name="Confirm" class="btn btn-success btn-labeled">Submit<span class="btn-label btn-label-right"><i
-                class="fa fa-check"></i></span></button>
-            <button class = create><a href="/developer_list"> Cancel</a></button>
+            <div class="left-column-50">
+                <button class = create type="submit" name="Confirm" class="btn btn-success btn-labeled">Submit<span class="btn-label btn-label-right"><i
+                    class="fa fa-check"></i></span></button>
+                <button class = create><a href="/crud/developer"> Cancel</a></button>
+            </div> 
         </form>
     </div>  
 {% endblock content %}

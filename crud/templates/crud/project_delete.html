@@ -2,16 +2,14 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div class="col-md-8 col-md-offset-2">
-    <div class="panel">
-        <div class="panel-body">
-            <form method="post" class="form">{% csrf_token %}
-                <h2>Are you sure you want to delete project "{{ object.name }}" info ?</h2>
-                <button class = create type="submit" name="Confirm" class="btn btn-success btn-labeled">Submit<span class="btn-label btn-label-right"><i
-                    class="fa fa-check"></i></span></button>
-                <button class = create><a href="/project_list"> Cancel</a></button>
-            </form>
-        </div>
-    </div>
-</div>  
+<div style="padding-top: 15%" class="d-flex justify-content-center">
+    <form method="post" class="form">{% csrf_token %}
+        <h3>Are you sure you want to delete project "{{ object.name }}" info ?</h3>
+        <div class="left-column-50">
+            <button class = create type="submit" name="Confirm" class="btn btn-success btn-labeled">Submit<span class="btn-label btn-label-right"><i
+                class="fa fa-check"></i></span></button>
+            <button class = create><a href="/crud"> Cancel</a></button>
+        </div> 
+    </form>
+</div>
 {% endblock content %}

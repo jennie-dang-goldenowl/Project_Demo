@@ -47,8 +47,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     "translation_manager",
     "django_pagination_bootstrap",
-    'bootstrap_datepicker_plus',
     'django.contrib.postgres',
+    # 'django-bootstrap-datepicker-plus',
 ]
 
 MIDDLEWARE = [
