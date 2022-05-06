@@ -1,14 +1,16 @@
-from re import template
 from django.views.generic import CreateView, ListView, UpdateView
 from django.views.generic.edit import DeleteView
 from django.shortcuts import render
 from django.core.paginator import Paginator
 from .models import Project, Developer
-from .forms import ProjectForm, DeveloperForm
+from .forms import ProjectForm, DeveloperForm, ProjectSearchForm
 from django.urls import reverse_lazy
 import operator
 from django.db.models import Q
 from functools import reduce
+from django.utils.translation import gettext as _
+from djmoney.money import Money
+from djmoney.contrib.exchange.models import convert_money
 
 class ProjectCreateView(CreateView):
     model = Project
@@ -71,7 +73,7 @@ class ProjectListView(ListView):
         'Project Name', 'Description', 'Start Date', 'End Date', 'Developer'
     ]
     context_object_name = 'project_list'
-    paginate_by = 10
+    paginate_by = 5
     queryset = Project.objects.all()
 
     def get_context_data(self, **kwargs):
@@ -92,7 +94,7 @@ class DeveloperListView(ListView):
         'First Name', 'Last Name', 'Project'
     ]
     context_object_name = 'developer_list'
-    paginate_by = 10
+    paginate_by = 4
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -100,7 +102,7 @@ class DeveloperListView(ListView):
         return context
 
 class ProjectSearchListView(ProjectListView):
-    paginate_by = 5
+    paginate_by = 4
     def get_queryset(self):
         result = super(ProjectSearchListView, self).get_queryset()
         query = self.request.GET.get('q')
@@ -115,16 +117,12 @@ class ProjectSearchListView(ProjectListView):
         return result
 
 class ProjectFilterListView(ProjectListView):
-    paginate_by = 5
-    def get_queryset(self):
-        result = super(ProjectFilterListView, self).get_queryset()
-        query = self.request.GET.get('q')
-        if query:
-            query_list = query.split()
-            result = result.filter(
-                reduce(operator.and_,
-                       (Q(name__icontains=q) for q in query_list)) |
-                reduce(operator.and_,
-                       (Q(name__icontains=q) for q in query_list))
-            )
-        return result
+    paginate_by = 3
+    def search(request):
+        queryset = Project.objects.all()
+        form = ProjectSearchForm(request.POST or None)
+        if request.method == 'POST':
+            queryset = Project.objects.filter(start_date__range=[form['start_date'].value(), form['end_date'].value()])
+            queryset = Project.objects.filter(end_date__range=[form['start_date'].value(), form['end_date'].value()])
+        return queryset
+

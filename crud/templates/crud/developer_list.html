@@ -1,4 +1,7 @@
 {% extends "crud/base.html" %}
+{% load bootstrap_pagination %}
+{% load i18n %}
+
 {% block content %}
             <div id="content">
                 <div class="table-title">
@@ -9,10 +12,10 @@
                     <div class="left-column-90">
                         <h1>Developer</h1>
                         <button class="newProject">
-                            <a href="/crud/project-create/">New Project</a>
+                            <a href="/crud/project-create/">{% trans 'New Project' %}</a>
                         </button>
                         <button class="newDev">
-                            <a href="/crud/developer-create/">New Developer</a>
+                            <a href="/crud/developer-create/">{% trans 'New Developer' %}</a>
                         </button>
                     </div>
                 </div>
@@ -21,11 +24,11 @@
                     <thead>
                         <tr>
                             <th class="text-left">ID</th>
-                            <th class="text-left">Last Name</th>
-                            <th class="text-left">First Name</th>
-                            <th class="text-left">Project</th>
-                            <th class="text-left">Program Language</th>
-                            <th class="text-left">Action</th>
+                            <th class="text-left">{% trans 'Last Name' %}</th>
+                            <th class="text-left">{% trans 'First Name' %}</th>
+                            <th class="text-left">{% trans 'Project' %}</th>
+                            <th class="text-left">{% trans 'Program Language' %}</th>
+                            <th class="text-left">{% trans 'Action' %}</th>
                         </tr>
                     </thead>
                     <tbody class="table-hover">
@@ -39,10 +42,10 @@
                             <td class="text-left">{{object.language}}</td>
                             <td class="text-left">
                                 <div class="dropdown">
-                                <button class="bt_dropdown">Choose action</button>
+                                <button class="bt_dropdown">{% trans 'Choose action' %}</button>
                                 <div class="nd_dropdown">
-                                    <a href="/crud/developer-update/{{object.developer_id}}">Update</a>
-                                    <a href="/crud/developer-delete/{{object.developer_id}}">Remove</a>
+                                    <a href="/crud/developer-update/{{object.developer_id}}">{% trans 'Update' %}</a>
+                                    <a href="/crud/developer-delete/{{object.developer_id}}">{% trans 'Remove' %}</a>
                                 </div>
                                 </div>
                             </td>
@@ -53,22 +56,6 @@
                 </table>
             </div>
 
-            <div class="pagination justify-content-center">
-                <span class="step-links">
-                    {% if page_obj.has_previous %}
-                        <a href="?page=1">&laquo; first</a>
-                        <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-                    {% endif %}
-
-                    <span class="current">
-                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-                    </span>
-
-                    {% if page_obj.has_next %}
-                        <a href="?page={{ page_obj.next_page_number }}">next</a>
-                        <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-                    {% endif %}
-                </span>
-            </div>
+            {% bootstrap_paginate page_obj %}
         </div>
     {% endblock content %}

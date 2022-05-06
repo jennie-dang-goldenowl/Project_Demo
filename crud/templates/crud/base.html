@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"/>
+    <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     {% load static %}
+    {% load bootstrap4 %}
     {% load i18n%}
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>
@@ -23,9 +24,9 @@
             <h1><a href="/crud">JenGyy</a></h1>
             <div class="nav">
                 <ul>
-                    <li><a href="/crud">Project</a></li>
-                    <li><a href="/crud/developer/">Developer</a></li>
-                    <li><a href="/admin/">Dashboard</a></li>
+                    <li><a href="/crud">{% trans 'Project' %}</a></li>
+                    <li><a href="/crud/developer/">{% trans 'Developer' %}</a></li>
+                    <li><a href="/admin/">{% trans 'Dashboard' %}</a></li>
                     <li>
                         <form action="{% url 'project_search_list_view' %}" class="search-container" method="get" accept-charset="utf-8">
                             <input
@@ -36,12 +37,22 @@
                             />
                             <input type="submit" id="search-submit" />
                         </form>        
-
                     </li>
-                    <li><i class="far fa-globe"></i></li>
+                    <li>
+                        <div class='dropdown'>
+                            <a class='title'>{% trans 'Language' %}</a>
+                            <div class='nd_dropdown'>
+                                <a class="dropdown-item" href="/en/crud/">{% trans 'English' %}</a>
+                                <a class="dropdown-item" href="/vi/crud/">{% trans 'Vietnamese' %}</a>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>  
+
+
+
         {% block content %}
         {% endblock content %}        
     {% block script %}

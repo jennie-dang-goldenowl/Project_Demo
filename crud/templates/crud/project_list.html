@@ -1,6 +1,8 @@
 {% extends "crud/base.html" %}
+{% load bootstrap_pagination %}
+{% load i18n %}
 
-{% block content %}
+{% block content %}        
             <div id="content">
                 <div class="table-title">
                     <h3>*</h3>
@@ -10,28 +12,30 @@
                     <div class="left-column-90">
                         <h1>Project</h1>
                         <button class="newProject">
-                            <a href="/crud/project-create/">New Project</a>
+                            <a href="/crud/project-create/">{% trans 'New Project' %}</a>
                         </button>
                         <button class="newDev">
-                            <a href="/crud/developer-create/">New Developer</a>
+                            <a href="/crud/developer-create/">{% trans 'New Developer' %}</a>
                         </button>
                     </div>
                     <div class="right-column-10">
+                        <form action="{% url 'project_filter_list_view' %}" method="get">
                             <div class="large-6 columns">
-                                <label for="start">Start Date</label>
-                                <input id="inputStartDate" type="date" /><br/>
+                                <label for="start">{% trans 'Start Date' %}</label>
+                                <input id="inputStartDate" type="date" name="d1" /><br/>
                             </div>
                             <div class="large-6 columns">
-                                <label for="end">End Date</label>
-                                <input id="inputEndDate" type="date" /><br />
+                                <label for="end">{% trans 'End Date' %}</label>
+                                <input id="inputEndDate" type="date" name="d2" /><br />
                             </div>
                             <div class="large-12 columns">
-                                <button class="button radius" id="filter" onclick="filterDay()">Filter</button>
+                                <button class="button radius" id="filter" onclick="filterDay()">{% trans 'Filter' %}</button>
                                 <button id="clearFilter" class="button radius secondary" onclick="location.reload();">
-                                    Clear Filter
+                                    {% trans 'Clear Filter' %}
                                 </button>
+                            </form>
                                 <div class="dropdown">
-                                    <button class="bt_dropdown">Currency</button>
+                                    <button class="bt_dropdown">{% trans 'Currency' %}</button>
                                     <div class="nd_dropdown">
                                         <a href="#">USD</a>
                                         <a href="#">VND</a>
@@ -46,13 +50,13 @@
                     <thead>
                         <tr>
                             <th class="text-left">ID</th>
-                            <th class="text-left">Project</th>
-                            <th class="text-left">Description</th>
-                            <th class="text-l eft">Start Date</th>
-                            <th class="text-left">End date</th>
-                            <th class="text-left">Cost</th>
-                            <th class="text-left">Developer</th>
-                            <th class="text-left">Action</th>
+                            <th class="text-left">{% trans 'Project' %}</th>
+                            <th class="text-left">{% trans 'Description' %}</th>
+                            <th class="text-l eft">{% trans 'Start Date' %}</th>
+                            <th class="text-left">{% trans 'End date' %}</th>
+                            <th class="text-left">{% trans 'Cost' %}</th>
+                            <th class="text-left">{% trans 'Developer' %}</th>
+                            <th class="text-left">{% trans 'Action' %}</th>
                         </tr>
                     </thead>
                     <tbody class="table-hover">
@@ -67,10 +71,10 @@
                             <td class="text-left"><a href=''>{{object.developers}}</a></td>
                             <td class="text-left">
                                 <div class="dropdown">
-                                <button class="bt_dropdown">Choose action</button>
+                                <button class="bt_dropdown">{% trans 'Choose action' %}</button>
                                 <div class="nd_dropdown">
-                                    <a href="/crud/project-update/{{object.project_id}}">Update</a>
-                                    <a href="/crud/project-delete/{{object.project_id}}">Remove</a>
+                                    <a href="/crud/project-update/{{object.project_id}}">{% trans 'Update' %}</a>
+                                    <a href="/crud/project-delete/{{object.project_id}}">{% trans 'Remove' %}</a>
                                 </div>
                                 </div>
                             </td>
@@ -80,22 +84,7 @@
                 </table>
             </div>
 
-            <div class="pagination justify-content-center">
-                <span class="step-links">
-                    {% if page_obj.has_previous %}
-                        <a href="?page=1">&laquo; first</a>
-                        <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-                    {% endif %}
-
-                    <span class="current">
-                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-                    </span>
-
-                    {% if page_obj.has_next %}
-                        <a href="?page={{ page_obj.next_page_number }}">next</a>
-                        <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-                    {% endif %}
-                </span>
-            </div>
+            {% bootstrap_paginate page_obj %}
+            
         </div>
 {% endblock content %}

@@ -22,7 +22,7 @@ body {
 
 #header h1 a {
   color: #fff;
-  font-weight: bold;
+  font-weight: normal;
   line-height: 80px;
 
 }
@@ -30,7 +30,7 @@ body {
 #header ul a {
   text-decoration: none;
   color: white;
-  font-size: 20px;
+  font-size: 16px !important;
   font-weight: 600;
 }
 
@@ -76,6 +76,16 @@ body {
   background-color: #7fcbad;
 }
 
+.nav .dropdown .nd_dropdown a {
+  background-color: #ffc9aa;
+  font-weight: normal !important;
+  color: rgb(139, 138, 138) !important;
+}
+
+.nav .dropdown .nd_dropdown a:hover {
+  background-color: #ddd;
+}
+
 @media only screen and (max-width: 700px) {
   .content {
     flex-direction: column;
@@ -112,6 +122,7 @@ div.title {
   padding: 14px;
   font-size: 16px;
   border: none;
+  cursor: pointer;
 }
 
 div.table-title {
@@ -702,6 +713,7 @@ button {
   padding: 14px;
   font-size: 16px;
   border: none;
+  cursor: pointer;
 }
 
 .large-12 {
@@ -854,8 +866,4 @@ img {
   height: 170px;
   width: 140px;
   object-fit: cover;
-}
-
-.content_corfirm_delete {
-  
 }
