@@ -2,12 +2,12 @@ from cProfile import label
 from dataclasses import field
 from django import forms 
 from .models import Project, Developer
-from djmoney.models.fields import MoneyField
 
 class DateInput(forms.DateInput):
     input_type = 'date'
 
 class ProjectForm(forms.ModelForm):
+    cost = forms.DecimalField(max_digits=14, decimal_places=2, label='Cost', widget=forms.NumberInput(attrs={'class': 'form-control'}))
     class Meta:
         model = Project
         fields = '__all__'
@@ -17,7 +17,6 @@ class ProjectForm(forms.ModelForm):
             'description': 'Description',
             'start_date': 'Start Date',
             'end_date': 'End Date',
-            'cost': 'Cost',
             'cost_currency': 'Currency',
             'developers': 'Developer'
         }
@@ -26,8 +25,6 @@ class ProjectForm(forms.ModelForm):
             'description': forms.TextInput(attrs={'class':'form-control'}),
             'start_date': DateInput(attrs={'class':'form-control'}),
             'end_date': DateInput(attrs={'class':'form-control'}),
-            'cost': forms.NumberInput(attrs={'class':'form-control'}),
-            'cost_currency': forms.TextInput(attrs={'class':'form-control'}),
             'developer': forms.Select(attrs={'class':'form-control'}),
          }
 
