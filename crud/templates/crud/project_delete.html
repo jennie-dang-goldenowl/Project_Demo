@@ -6,7 +6,7 @@
 <div style="padding-top: 15%" class="d-flex justify-content-center">
     <form method="post" class="form">{% csrf_token %}
         <h3>Are you sure you want to delete project {{ object.name }} info ?</h3>
-        <div class="left-column-50">
+        <div class="delete">
             <button class = create type="submit" name="Confirm" class="btn btn-success btn-labeled">{% trans 'Submit' %}<span class="btn-label btn-label-right"><i
                 class="fa fa-check"></i></span></button>
             <button class = create><a href="/">{% trans 'Cancel' %}</a></button>

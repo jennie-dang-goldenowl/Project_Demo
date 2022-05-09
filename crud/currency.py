@@ -10,7 +10,7 @@ class CurrencyExchange:
         return requests.get(url).json()
     
     def get_key(self, base_currency):
-        return f'currencies-{base_currency}'
+        return f'currencies-{base_currency}'    
 
     def get_all_rates(self, base_currency):
         key = self.get_key(base_currency)
@@ -19,7 +19,7 @@ class CurrencyExchange:
     def get_rate(self, base_currency, currency):
         return self.get_all_rates(base_currency)['rates'][currency]
       
-    def get_converted_amount(amount, base_currency, converted_currency):
+    def get_converted_amount(self, amount, base_currency, converted_currency):
         return round(float(amount) * float(self.get_rate(base_currency.upper(), converted_currency.upper())), 3)
 
     def convert(self, money, currency):

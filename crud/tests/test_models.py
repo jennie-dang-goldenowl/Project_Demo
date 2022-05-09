@@ -1,29 +1,27 @@
-from django.test import TestCase
-from crud.models import Developer, Project
+from django.test import TransactionTestCase
+from django.urls import reverse
+from crud.models import Project, Developer
 
-class DeveloperModelTest(TestCase):
-    @classmethod
-    def setUpTestData(cls):
-        Developer.objects.create(first_name='Big', last_name='Bob', language='Python')
+class TestModels(TransactionTestCase):
+    def setUp(self):
+        self.pro=Project.objects.create(
+            name="test",
+            description="test",
+            start_date="2022-04-05",
+            end_date="2022-05-07",
+            cost=100,
+        )
+        self.dev= Developer.objects.create(
+            first_name= "test0905",
+            last_name= "yeh",
+            language="python",
+            project='test'
+        )
 
-    def test_first_name_label(self):
-        developer = Developer.objects.get(id=1)
-        field_label = developer._meta.get_field('first_name').verbose_name
-        self.assertEqual(field_label, 'first name')
+    def test_developer_create(self):
+        self.assertEqual(Developer.objects.filter(first_name="test0905").count(),1)
 
-    def test_last_name_label(self):
-        developer = Developer.objects.get(id=1)
-        field_label = developer._meta.get_field('last_name').verbose_name
-        self.assertEqual(field_label, 'last_name')
+    def test_project_create(self):
+        self.assertEqual(Project.objects.all().count(),1)
 
-    def test_first_name_max_length(self):
-        developer = Developer.objects.get(id=1)
-        max_length = developer._meta.get_field('first_name').max_length
-        self.assertEqual(max_length, 256)
-
-    def test_last_name_max_length(self):
-        developer = Developer.objects.get(id=1)
-        max_length = developer._meta.get_field('last_name').max_length
-        self.assertEqual(max_length, 256)
-
-    
+        

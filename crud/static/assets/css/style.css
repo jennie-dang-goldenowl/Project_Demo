@@ -867,3 +867,7 @@ img {
   width: 140px;
   object-fit: cover;
 }
+
+.delete {
+  transform: translate(30%)
+}
