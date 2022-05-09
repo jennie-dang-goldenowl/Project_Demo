@@ -15,6 +15,7 @@ click-plugins==1.1.1
 click-repl==0.2.0
 colorama==0.4.4
 confusable-homoglyphs==3.2.0
+coverage==6.3.2
 Deprecated==1.2.13
 dill==0.3.4
 distlib==0.3.4

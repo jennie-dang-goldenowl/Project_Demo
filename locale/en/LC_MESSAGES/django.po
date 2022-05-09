@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-05 17:50+0700\n"
+"POT-Creation-Date: 2022-05-06 11:04+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,35 +18,35 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\Project_Demo\settings.py:126 .\crud\templates\crud\base.html:45
+#: .\Project_Demo\settings.py:132 .\crud\templates\crud\base.html:45
 msgid "English"
-msgstr ""
+msgstr "English"
 
-#: .\Project_Demo\settings.py:127 .\crud\templates\crud\base.html:46
+#: .\Project_Demo\settings.py:133 .\crud\templates\crud\base.html:46
 msgid "Vietnamese"
-msgstr ""
+msgstr "Vietnamese"
 
-#: .\crud\models.py:8
+#: .\crud\models.py:9
 msgid "project_id"
 msgstr ""
 
-#: .\crud\models.py:9
+#: .\crud\models.py:10
 msgid "name"
 msgstr ""
 
-#: .\crud\models.py:10
+#: .\crud\models.py:11
 msgid "description"
 msgstr ""
 
-#: .\crud\models.py:11
+#: .\crud\models.py:12
 msgid "start_date"
 msgstr ""
 
-#: .\crud\models.py:12
+#: .\crud\models.py:13
 msgid "end_date"
 msgstr ""
 
-#: .\crud\models.py:13
+#: .\crud\models.py:14
 msgid "cost"
 msgstr ""
 
@@ -55,107 +55,107 @@ msgstr ""
 #: .\crud\templates\crud\project_form.html:13
 #: .\crud\templates\crud\project_list.html:53
 msgid "Project"
-msgstr ""
+msgstr "Project"
 
 #: .\crud\templates\crud\base.html:28
 #: .\crud\templates\crud\developer_form.html:12
 #: .\crud\templates\crud\project_list.html:58
 msgid "Developer"
-msgstr ""
+msgstr "Developer"
 
 #: .\crud\templates\crud\base.html:29
 msgid "Dashboard"
-msgstr ""
+msgstr "Dashboard"
 
 #: .\crud\templates\crud\base.html:43
 msgid "Language"
-msgstr ""
+msgstr "Language"
 
 #: .\crud\templates\crud\developer_delete.html:10
 #: .\crud\templates\crud\developer_form.html:38
 #: .\crud\templates\crud\project_delete.html:10
 #: .\crud\templates\crud\project_form.html:33
 msgid "Submit"
-msgstr ""
+msgstr "Submit"
 
 #: .\crud\templates\crud\developer_delete.html:12
 #: .\crud\templates\crud\developer_form.html:40
 #: .\crud\templates\crud\project_delete.html:12
 #: .\crud\templates\crud\project_form.html:35
 msgid "Cancel"
-msgstr ""
+msgstr "Cancel"
 
 #: .\crud\templates\crud\developer_list.html:15
 #: .\crud\templates\crud\project_list.html:15
 msgid "New Project"
-msgstr ""
+msgstr "New Project"
 
 #: .\crud\templates\crud\developer_list.html:18
 #: .\crud\templates\crud\project_list.html:18
 msgid "New Developer"
-msgstr ""
+msgstr "New Developer"
 
 #: .\crud\templates\crud\developer_list.html:27
 msgid "Last Name"
-msgstr ""
+msgstr "Last Name"
 
 #: .\crud\templates\crud\developer_list.html:28
 msgid "First Name"
-msgstr ""
+msgstr "First Name"
 
 #: .\crud\templates\crud\developer_list.html:30
 msgid "Program Language"
-msgstr ""
+msgstr "Program Language"
 
 #: .\crud\templates\crud\developer_list.html:31
 #: .\crud\templates\crud\project_list.html:59
 msgid "Action"
-msgstr ""
+msgstr "Action"
 
 #: .\crud\templates\crud\developer_list.html:45
 #: .\crud\templates\crud\project_list.html:74
 msgid "Choose action"
-msgstr ""
+msgstr "Choose action"
 
 #: .\crud\templates\crud\developer_list.html:47
 #: .\crud\templates\crud\project_list.html:76
 msgid "Update"
-msgstr ""
+msgstr "Update"
 
 #: .\crud\templates\crud\developer_list.html:48
 #: .\crud\templates\crud\project_list.html:77
 msgid "Remove"
-msgstr ""
+msgstr "Remove"
 
 #: .\crud\templates\crud\project_list.html:24
 #: .\crud\templates\crud\project_list.html:55
 msgid "Start Date"
-msgstr ""
+msgstr "Start Date"
 
 #: .\crud\templates\crud\project_list.html:28
 msgid "End Date"
-msgstr ""
+msgstr "End Date"
 
 #: .\crud\templates\crud\project_list.html:32
 msgid "Filter"
-msgstr ""
+msgstr "Filter"
 
 #: .\crud\templates\crud\project_list.html:34
 msgid "Clear Filter"
-msgstr ""
+msgstr "Clear Filter"
 
 #: .\crud\templates\crud\project_list.html:38
 msgid "Currency"
-msgstr ""
+msgstr "Currency"
 
 #: .\crud\templates\crud\project_list.html:54
 msgid "Description"
-msgstr ""
+msgstr "Description"
 
 #: .\crud\templates\crud\project_list.html:56
 msgid "End date"
-msgstr ""
+msgstr "End date"
 
 #: .\crud\templates\crud\project_list.html:57
 msgid "Cost"
-msgstr ""
+msgstr "Cost"

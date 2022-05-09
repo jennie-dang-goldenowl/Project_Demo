@@ -2,7 +2,7 @@ from cProfile import label
 from dataclasses import field
 from django import forms 
 from .models import Project, Developer
-from bootstrap_datepicker_plus.widgets import DateTimePickerInput
+from djmoney.models.fields import MoneyField
 
 class DateInput(forms.DateInput):
     input_type = 'date'
@@ -18,6 +18,7 @@ class ProjectForm(forms.ModelForm):
             'start_date': 'Start Date',
             'end_date': 'End Date',
             'cost': 'Cost',
+            'cost_currency': 'Currency',
             'developers': 'Developer'
         }
         widgets = {
@@ -26,6 +27,7 @@ class ProjectForm(forms.ModelForm):
             'start_date': DateInput(attrs={'class':'form-control'}),
             'end_date': DateInput(attrs={'class':'form-control'}),
             'cost': forms.NumberInput(attrs={'class':'form-control'}),
+            'cost_currency': forms.TextInput(attrs={'class':'form-control'}),
             'developer': forms.Select(attrs={'class':'form-control'}),
          }
 

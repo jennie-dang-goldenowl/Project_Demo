@@ -4,9 +4,7 @@ from django.core.cache import cache
 from djmoney.money import Money
 from djmoney.contrib.exchange.models import convert_money
 
-
-
-class CurrencyExchangeService:
+class CurrencyExchange:
     def get_rates_from_api(self, base_currency):
         url = f'{settings.CURRENCY_RATES_URL}?base={base_currency}'
         return requests.get(url).json()
@@ -23,20 +21,14 @@ class CurrencyExchangeService:
       
     def get_converted_amount(amount, base_currency, converted_currency):
         return round(float(amount) * float(self.get_rate(base_currency.upper(), converted_currency.upper())), 3)
-      
-    def validate_money(money):
-        if not isinstance(money, Money):
-            raise Exception('A Money instance must be provided')
 
     def convert(self, money, currency):
         self.validate_money(money)
-        
         amount = money.amount
         base_currency = str(money.currency)
         converted_currency = str(currency)
-        convert_money(Money(money, 'VND'), 'USD')
+        convert_money(Money(money, 'USD'), 'VND')
 
-        
         if base_currency.upper() == converted_currency.upper():
             return money
         return Money(self.get_converted_amount(amount, base_currency, converted_currency), converted_currency)

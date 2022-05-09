@@ -2,6 +2,7 @@ from pathlib import Path
 import os
 from django.utils.translation import gettext_lazy as _
 from celery.schedules import crontab
+import moneyed
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.\
 
@@ -51,6 +52,7 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "Project_Demo.middlewares.ForceDefaultLanguageMiddleware",
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -58,8 +60,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "django.contrib.sessions.middleware.SessionMiddleware",
-    "django.middleware.locale.LocaleMiddleware",
-    "django.middleware.common.CommonMiddleware",
     "django_pagination_bootstrap.middleware.PaginationMiddleware",
 ]
 
@@ -125,7 +125,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'vi'
+LANGUAGE_CODE = 'en-us'
+DEFAULT_LANGUAGE = 0
 
 LANGUAGES = [
     ('en', _('English')),
@@ -155,12 +156,20 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 DATE_FORMAT = "d-m-y"
 
-LANGUAGE_SESSION_KEY = 'session_language_crud'
-LANGUAGE_COOKIE_NAME = 'cookie_language_crud' 
+# LANGUAGE_SESSION_KEY = 'session_language_crud'
+# LANGUAGE_COOKIE_NAME = 'cookie_language_crud' 
+
+EXCHANGE_BACKEND = 'djmoney.contrib.exchange.backends.FixerBackend'
 
 CURRENCY_RATES_URL = 'https://api.currencyapi.com/v3/latest?apikey=1Rh0P0R6bqhq6AulfXL9gwCBpFyEuAHXqmdcaNn1'
 
 BASE_CURRENCY = "USD"
+
+OPEN_EXCHANGE_RATES_APP_ID = 'fcc2021b195f4ec2a106056362cd92e0'
+FIXER_ACCESS_KEY = ''
+
+OPEN_EXCHANGE_RATES_URL = 'https://openexchangerates.org/api/historical/2022-05-06.json?symbols=USD,VND'
+FIXER_URL = 'http://data.fixer.io/api/2022-05-06?symbols=USD,VND'
 
 CACHES = {
     "default": {
@@ -177,8 +186,27 @@ CELERYBEAT_SCHEDULE = {
     'update_rates': {
     'task': 'path.to.your.task',
     'schedule': crontab(minute=5),
-    'kwargs': {} # For custom arguments
+    'kwargs': {}
     }
 }
 
+# CELERY STUFF
 CELERY_BROKER_URL = os.environ.get("CELERY_BROKER", "redis://redis:6379/0")
+CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+
+
+
+VND = moneyed.add_currency(
+    code='VND',
+    numeric='068',
+    name='Vietnamese Dong',
+    countries=('Vietnamese')
+)
+
+CURRENCIES = ('USD', 'VND')
+CURRENCY_CHOICES = [('USD', 'USD $'), ('VND', 'VND')]
+
+AUTO_CONVERT_MONEY = True

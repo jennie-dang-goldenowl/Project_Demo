@@ -126,3 +126,7 @@ class ProjectFilterListView(ProjectListView):
             queryset = Project.objects.filter(end_date__range=[form['start_date'].value(), form['end_date'].value()])
         return queryset
 
+class CurrencyConvert(ProjectListView):
+    model = Project
+    def convert(self):
+        convert_money((self, 'VND'), 'USD')

@@ -3,7 +3,6 @@ from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from djmoney.models.fields import MoneyField
 
-# Create your models here.
 #Model Projects
 class Project(models.Model):
     project_id = models.BigAutoField(_('project_id'),primary_key=True)
@@ -11,7 +10,7 @@ class Project(models.Model):
     description = models.CharField(_('description'),max_length=256)
     start_date = models.DateField(_('start_date'))
     end_date = models.DateField(_('end_date'),)
-    cost = MoneyField(max_digits=14, decimal_places=2, default_currency='USD')
+    cost = MoneyField(_('cost'),max_digits=14, decimal_places=2, default_currency='USD')
     developers = models.OneToOneField('Developer', null=True, on_delete=models.CASCADE)
 
     def __str__(self):
