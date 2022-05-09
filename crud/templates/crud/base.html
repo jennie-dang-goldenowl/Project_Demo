@@ -16,17 +16,17 @@
     <link rel="stylesheet" href="{% static 'lib/css/bootstrap.min.css' %}" type="text/css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" crossorigin="anonymous" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" rel="stylesheet"/>
     {{ form.media }}
-</head>    
+</head>
 <body>
     <div id="main">
         <!-- navbar -->
         <div id="header">
             <h1><a href="/crud">JenGyy</a></h1>
             <div class="nav">
-                <ul>
-                    <li><a href="/crud">{% trans 'Project' %}</a></li>
-                    <li><a href="/crud/developer/">{% trans 'Developer' %}</a></li>
-                    <li><a href="/admin/">{% trans 'Dashboard' %}</a></li>
+                <ul style="height: 100%;">
+                    <li><a style="height: 100%;" href="/crud">{% trans 'Project' %}</a></li>
+                    <li><a style="height: 100%;" href="/crud/developer/">{% trans 'Developer' %}</a></li>
+                    <li><a style="height: 100%;" href="/admin/">{% trans 'Dashboard' %}</a></li>
                     <li>
                         <form action="{% url 'project_search_list_view' %}" class="search-container" method="get" accept-charset="utf-8">
                             <input
@@ -36,7 +36,7 @@
                             name="q"
                             />
                             <input type="submit" id="search-submit" />
-                        </form>        
+                        </form>
                     </li>
                     <li>
                         <div class='dropdown'>
@@ -49,20 +49,20 @@
                     </li>
                 </ul>
             </div>
-        </div>  
+        </div>
 
 
 
         {% block content %}
-        {% endblock content %}        
+        {% endblock content %}
     {% block script %}
-    <script type="text/javascript" src="{% static 'assets/js/jquery-3.3.1.min.js' %}"></script> 
-    <script type="text/javascript" src="{% static 'assets/js/script.js' %}"></script> 
+    <script type="text/javascript" src="{% static 'assets/js/jquery-3.3.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/script.js' %}"></script>
     <script src="https://kit.fontawesome.com/10053f200c.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="{% static 'lib/js/bootstrap.min.js' %}"></script> 
+    <script type="text/javascript" src="{% static 'lib/js/bootstrap.min.js' %}"></script>
     <script type="text/javascript" src='https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js'></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.min.js"></script> 
-    <script src="{% static 'lib/js/bootstrap.bundle.min.js' %}"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.min.js"></script>
+    <script src="{% static 'lib/js/bootstrap.bundle.min.js' %}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" crossorigin="anonymous" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"></script>
     {% endblock script %}

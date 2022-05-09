@@ -1,5 +1,5 @@
 version: "3.8"
-   
+
 services:
     django:
         build: .
@@ -27,6 +27,6 @@ services:
             - CELERY_BROKER=redis://redis:6379/0
         depends_on:
             - django
-            - redis 
+            - redis
     redis:
         image: "redis:alpine"

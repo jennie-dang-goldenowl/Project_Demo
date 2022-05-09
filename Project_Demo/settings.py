@@ -51,6 +51,7 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'Project_Demo.default_language_middleware.DefaultLanguageMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -58,9 +59,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "django.contrib.sessions.middleware.SessionMiddleware",
-    "django.middleware.locale.LocaleMiddleware",
-    "django.middleware.common.CommonMiddleware",
     "django_pagination_bootstrap.middleware.PaginationMiddleware",
+
 ]
 
 ROOT_URLCONF = 'Project_Demo.urls'
@@ -81,7 +81,7 @@ TEMPLATES = [
                 "django.template.context_processors.request"
             ],
             'libraries' : {
-                'staticfiles': 'django.templatetags.static', 
+                'staticfiles': 'django.templatetags.static',
             }
         },
     },
@@ -96,7 +96,7 @@ WSGI_APPLICATION = 'Project_Demo.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Project_Demo',
+        'NAME': 'project_demo',
         'USER': 'postgres',
         'PASSWORD': '0308',
         'HOST': 'localhost',
@@ -125,12 +125,14 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'vi'
+LANGUAGE_CODE = 'en-US'
 
 LANGUAGES = [
     ('en', _('English')),
     ('vi', _('Vietnamese')),
 ]
+
+# DEFAULT_LANGUAGE = 1
 
 LOCALE_PATHS = (os.path.join(os.path.dirname(__file__), "..", "locale"),)
 
@@ -156,7 +158,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 DATE_FORMAT = "d-m-y"
 
 LANGUAGE_SESSION_KEY = 'session_language_crud'
-LANGUAGE_COOKIE_NAME = 'cookie_language_crud' 
+LANGUAGE_COOKIE_NAME = 'cookie_language_crud'
 
 CURRENCY_RATES_URL = 'https://api.currencyapi.com/v3/latest?apikey=1Rh0P0R6bqhq6AulfXL9gwCBpFyEuAHXqmdcaNn1'
 
@@ -173,12 +175,13 @@ CACHES = {
     }
 }
 
-CELERYBEAT_SCHEDULE = {
+CELERY_BROKER_URL = os.environ.get("CELERY_BROKER", "redis://localhost:6379/0")
+
+CELERY_BEAT_SCHEDULE = {
     'update_rates': {
-    'task': 'path.to.your.task',
-    'schedule': crontab(minute=5),
-    'kwargs': {} # For custom arguments
+    'task': 'update_rates',
+    'schedule': 5.0,
     }
 }
 
-CELERY_BROKER_URL = os.environ.get("CELERY_BROKER", "redis://redis:6379/0")
+CURRENCIES = ('USD', 'VND')

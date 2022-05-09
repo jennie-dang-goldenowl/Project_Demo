@@ -80,7 +80,7 @@ class ProjectListView(ListView):
         context = super().get_context_data(**kwargs)
         context['field_list'] = self.field_list
         return context
-    
+
     def listing(request):
         project_list = Project.objects.all()
         paginator = Paginator(project_list, 25) # Show 25 contacts per page.
@@ -95,7 +95,7 @@ class DeveloperListView(ListView):
     ]
     context_object_name = 'developer_list'
     paginate_by = 4
-    
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['field_list']   =   self.field_list
@@ -125,4 +125,3 @@ class ProjectFilterListView(ProjectListView):
             queryset = Project.objects.filter(start_date__range=[form['start_date'].value(), form['end_date'].value()])
             queryset = Project.objects.filter(end_date__range=[form['start_date'].value(), form['end_date'].value()])
         return queryset
-

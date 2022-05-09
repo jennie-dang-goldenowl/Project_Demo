@@ -11,4 +11,5 @@ urlpatterns = [
 
 urlpatterns += i18n_patterns(
     path('crud/', include('crud.urls')),
+    # prefix_default_language=False
 )

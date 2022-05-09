@@ -10,7 +10,7 @@ class Project(models.Model):
     name = models.CharField(_('name'),max_length=256)
     description = models.CharField(_('description'),max_length=256)
     start_date = models.DateField(_('start_date'))
-    end_date = models.DateField(_('end_date'),)
+    end_date = models.DateField(_('end_date'))
     cost = MoneyField(max_digits=14, decimal_places=2, default_currency='USD')
     developers = models.OneToOneField('Developer', null=True, on_delete=models.CASCADE)
 
