@@ -21,11 +21,11 @@
     <div id="main">
         <!-- navbar -->
         <div id="header">
-            <h1><a href="/crud">JenGyy</a></h1>
+            <h1><a href="/">JenGyy</a></h1>
             <div class="nav">
                 <ul>
-                    <li><a href="/crud">{% trans 'Project' %}</a></li>
-                    <li><a href="/crud/developer/">{% trans 'Developer' %}</a></li>
+                    <li><a href="/">{% trans 'Project' %}</a></li>
+                    <li><a href="/developer/">{% trans 'Developer' %}</a></li>
                     <li><a href="/admin/">{% trans 'Dashboard' %}</a></li>
                     <li>
                         <form action="{% url 'project_search_list_view' %}" class="search-container" method="get" accept-charset="utf-8">
@@ -42,8 +42,8 @@
                         <div class='dropdown'>
                             <a class='title'>{% trans 'Language' %}</a>
                             <div class='nd_dropdown'>
-                                <a class="dropdown-item" href="/en/crud/">{% trans 'English' %}</a>
-                                <a class="dropdown-item" href="/vi/crud/">{% trans 'Vietnamese' %}</a>
+                                <a class="dropdown-item" href="/en/">{% trans 'English' %}</a>
+                                <a class="dropdown-item" href="/vi/">{% trans 'Vietnamese' %}</a>
                             </div>
                         </div>
                     </li>

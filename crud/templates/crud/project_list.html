@@ -12,10 +12,10 @@
                     <div class="left-column-90">
                         <h1>Project</h1>
                         <button class="newProject">
-                            <a href="/crud/project-create/">{% trans 'New Project' %}</a>
+                            <a href="/project-create/">{% trans 'New Project' %}</a>
                         </button>
                         <button class="newDev">
-                            <a href="/crud/developer-create/">{% trans 'New Developer' %}</a>
+                            <a href="/developer-create/">{% trans 'New Developer' %}</a>
                         </button>
                     </div>
                     <div class="right-column-10">
@@ -73,8 +73,8 @@
                                 <div class="dropdown">
                                 <button class="bt_dropdown">{% trans 'Choose action' %}</button>
                                 <div class="nd_dropdown">
-                                    <a href="/crud/project-update/{{object.project_id}}">{% trans 'Update' %}</a>
-                                    <a href="/crud/project-delete/{{object.project_id}}">{% trans 'Remove' %}</a>
+                                    <a href="/project-update/{{object.project_id}}">{% trans 'Update' %}</a>
+                                    <a href="/project-delete/{{object.project_id}}">{% trans 'Remove' %}</a>
                                 </div>
                                 </div>
                             </td>

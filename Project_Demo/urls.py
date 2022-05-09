@@ -10,5 +10,5 @@ urlpatterns = [
 ]
 
 urlpatterns += i18n_patterns(
-    path('crud/', include('crud.urls')),
+    path('', include('crud.urls')),
 )
