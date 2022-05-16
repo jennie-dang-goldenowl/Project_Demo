@@ -45,8 +45,6 @@ INSTALLED_APPS = [
     'bootstrap_pagination',
     'djmoney',
     'djmoney.contrib.exchange',
-    'celery',
-
 ]
 
 MIDDLEWARE = [
