@@ -17,6 +17,7 @@ os.path.join(BASE_DIR, 'boot'),
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-$q4k#hhd&+^nww7+ev=_!*-xew9i+*z2^sh03233pjam8-xpmo'
+API_KEY = '1Rh0P0R6bqhq6AulfXL9gwCBpFyEuAHXqmdcaNn1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -127,7 +128,6 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-DEFAULT_LANGUAGE = 0
 
 LANGUAGES = [
     ('en', _('English')),
@@ -160,17 +160,9 @@ DATE_FORMAT = "d-m-y"
 # LANGUAGE_SESSION_KEY = 'session_language_crud'
 # LANGUAGE_COOKIE_NAME = 'cookie_language_crud' 
 
-EXCHANGE_BACKEND = 'djmoney.contrib.exchange.backends.FixerBackend'
-
-CURRENCY_RATES_URL = 'https://api.currencyapi.com/v3/latest?apikey=1Rh0P0R6bqhq6AulfXL9gwCBpFyEuAHXqmdcaNn1'
-
 BASE_CURRENCY = "USD"
 
-OPEN_EXCHANGE_RATES_APP_ID = 'fcc2021b195f4ec2a106056362cd92e0'
-FIXER_ACCESS_KEY = ''
-
-OPEN_EXCHANGE_RATES_URL = 'https://openexchangerates.org/api/historical/2022-05-06.json?symbols=USD,VND'
-FIXER_URL = 'http://data.fixer.io/api/2022-05-06?symbols=USD,VND'
+BASE_URL = 'https://api.currencyapi.com/v3/status?apikey=1Rh0P0R6bqhq6AulfXL9gwCBpFyEuAHXqmdcaNn1'
 
 CACHES = {
     "default": {

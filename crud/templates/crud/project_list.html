@@ -63,7 +63,7 @@
                         {% for object in object_list %}
                         <tr>
                             <td class="text-left">{{object.project_id}}</td>
-                            <td id="name" class="text-left"><a href="/crud/project-update/{{object.project_id}}">{{object.name}}</a></td>
+                            <td id="name" class="text-left"><a href="/project-update/{{object.project_id}}">{{object.name}}</a></td>
                             <td class="text-left">{{object.description}}</td>
                             <td class="text-left">{{object.start_date | date:"d/m/Y"}}</td>
                             <td class="text-left">{{object.end_date | date:"d/m/Y"}}</td>
