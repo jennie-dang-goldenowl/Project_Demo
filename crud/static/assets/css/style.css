@@ -53,7 +53,7 @@ body {
 .nav ul {
   display: flex;
   justify-content: space-evenly;
-  width: 40vw;
+  width: auto;
   list-style-type: none;
 }
 

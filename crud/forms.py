@@ -17,7 +17,7 @@ class ProjectForm(forms.ModelForm):
             'description': 'Description',
             'start_date': 'Start Date',
             'end_date': 'End Date',
-            'cost_currency': 'Currency',
+            'cost': 'Currency',
             'developers': 'Developer'
         }
         widgets = {
@@ -26,7 +26,7 @@ class ProjectForm(forms.ModelForm):
             'start_date': DateInput(attrs={'class':'form-control'}),
             'end_date': DateInput(attrs={'class':'form-control'}),
             'developer': forms.Select(attrs={'class':'form-control'}),
-         }
+        }
 
 class DeveloperForm(forms.ModelForm):
     class Meta:

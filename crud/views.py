@@ -11,6 +11,7 @@ from functools import reduce
 from django.utils.translation import gettext as _
 from djmoney.money import Money
 from djmoney.contrib.exchange.models import convert_money
+from datetime import datetime
 
 class ProjectCreateView(CreateView):
     model = Project
@@ -101,30 +102,23 @@ class DeveloperListView(ListView):
         context['field_list']   =   self.field_list
         return context
 
-class ProjectSearchListView(ProjectListView):
+class SearchListView(ProjectListView, DeveloperListView):
     paginate_by = 4
     def get_queryset(self):
-        result = super(ProjectSearchListView, self).get_queryset()
+        result = super(SearchListView, self).get_queryset()
         query = self.request.GET.get('q')
         if query:
             query_list = query.split()
             result = result.filter(
                 reduce(operator.and_,
-                       (Q(name__icontains=q) for q in query_list)) |
-                reduce(operator.and_,
-                       (Q(name__icontains=q) for q in query_list))
+                    (Q(name__icontains=q) for q in query_list)) 
             )
         return result
-
 class ProjectFilterListView(ProjectListView):
-    paginate_by = 3
-    def search(request):
-        queryset = Project.objects.all()
-        form = ProjectSearchForm(request.POST or None)
-        if request.method == 'POST':
-            queryset = Project.objects.filter(start_date__range=[form['start_date'].value(), form['end_date'].value()])
-            queryset = Project.objects.filter(end_date__range=[form['start_date'].value(), form['end_date'].value()])
-        return queryset
+    def search(self, request):
+        query = self.request.GET.get('d1', 'd2')
+        data = Project.objects.filter(Q(start_date__range=[query.d1, query.d2]) | Q(end_date__range=[query.d1, query.d2])).values('project_id', 'name', 'description', 'start_date', 'end_date', 'cost', 'developers')
+        return render(request, ProjectListView, data)
 
 class CurrencyConvert(ProjectListView):
     model = Project

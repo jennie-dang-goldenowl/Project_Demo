@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-06 11:04+0700\n"
+"POT-Creation-Date: 2022-05-17 08:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,144 +18,142 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: .\Project_Demo\settings.py:132 .\crud\templates\crud\base.html:45
+#: Project_Demo/settings.py:132 crud/templates/crud/base.html:45
 msgid "English"
 msgstr "Tiếng Anh"
 
-#: .\Project_Demo\settings.py:133 .\crud\templates\crud\base.html:46
+#: Project_Demo/settings.py:133 crud/templates/crud/base.html:46
 msgid "Vietnamese"
 msgstr "Tiếng Việt"
 
-#: .\crud\models.py:9
+#: crud/models.py:8
 msgid "project_id"
 msgstr "Mã dự án"
 
-#: .\crud\models.py:10
+#: crud/models.py:9
 msgid "name"
 msgstr "Tên dự án"
 
-#: .\crud\models.py:11
+#: crud/models.py:10
 msgid "description"
 msgstr "Mô tả"
 
-#: .\crud\models.py:12
+#: crud/models.py:11
 msgid "start_date"
 msgstr "Ngày bắt đầu"
 
-#: .\crud\models.py:13
+#: crud/models.py:12
 msgid "end_date"
 msgstr "Ngày kết thúc"
 
-#: .\crud\models.py:14
+#: crud/models.py:13
 msgid "cost"
 msgstr "Giá"
 
-#: .\crud\templates\crud\base.html:27
-#: .\crud\templates\crud\developer_list.html:29
-#: .\crud\templates\crud\project_form.html:13
-#: .\crud\templates\crud\project_list.html:53
+#: crud/templates/crud/base.html:27 crud/templates/crud/developer_list.html:29
+#: crud/templates/crud/project_form.html:13
+#: crud/templates/crud/project_list.html:53
 msgid "Project"
 msgstr "Dự án"
 
-#: .\crud\templates\crud\base.html:28
-#: .\crud\templates\crud\developer_form.html:12
-#: .\crud\templates\crud\project_list.html:58
+#: crud/templates/crud/base.html:28 crud/templates/crud/developer_form.html:12
+#: crud/templates/crud/project_list.html:58
 msgid "Developer"
 msgstr "Lập trình viên"
 
-#: .\crud\templates\crud\base.html:29
+#: crud/templates/crud/base.html:29
 msgid "Dashboard"
 msgstr "Quản trị"
 
-#: .\crud\templates\crud\base.html:43
+#: crud/templates/crud/base.html:43
 msgid "Language"
 msgstr "Ngôn ngữ"
 
-#: .\crud\templates\crud\developer_delete.html:10
-#: .\crud\templates\crud\developer_form.html:38
-#: .\crud\templates\crud\project_delete.html:10
-#: .\crud\templates\crud\project_form.html:33
+#: crud/templates/crud/developer_delete.html:10
+#: crud/templates/crud/developer_form.html:35
+#: crud/templates/crud/project_delete.html:10
+#: crud/templates/crud/project_form.html:33
 msgid "Submit"
 msgstr "Xác nhận"
 
-#: .\crud\templates\crud\developer_delete.html:12
-#: .\crud\templates\crud\developer_form.html:40
-#: .\crud\templates\crud\project_delete.html:12
-#: .\crud\templates\crud\project_form.html:35
+#: crud/templates/crud/developer_delete.html:12
+#: crud/templates/crud/developer_form.html:37
+#: crud/templates/crud/project_delete.html:12
+#: crud/templates/crud/project_form.html:35
 msgid "Cancel"
 msgstr "Hủy bỏ"
 
-#: .\crud\templates\crud\developer_list.html:15
-#: .\crud\templates\crud\project_list.html:15
+#: crud/templates/crud/developer_list.html:15
+#: crud/templates/crud/project_list.html:15
 msgid "New Project"
 msgstr "Thêm dự án"
 
-#: .\crud\templates\crud\developer_list.html:18
-#: .\crud\templates\crud\project_list.html:18
+#: crud/templates/crud/developer_list.html:18
+#: crud/templates/crud/project_list.html:18
 msgid "New Developer"
 msgstr "Thêm lập trình viên"
 
-#: .\crud\templates\crud\developer_list.html:27
+#: crud/templates/crud/developer_list.html:27
 msgid "Last Name"
 msgstr "Họ"
 
-#: .\crud\templates\crud\developer_list.html:28
+#: crud/templates/crud/developer_list.html:28
 msgid "First Name"
 msgstr "Tên"
 
-#: .\crud\templates\crud\developer_list.html:30
+#: crud/templates/crud/developer_list.html:30
 msgid "Program Language"
 msgstr "Ngôn ngữ lập trình"
 
-#: .\crud\templates\crud\developer_list.html:31
-#: .\crud\templates\crud\project_list.html:59
+#: crud/templates/crud/developer_list.html:31
+#: crud/templates/crud/project_list.html:59
 msgid "Action"
 msgstr "Hành động"
 
-#: .\crud\templates\crud\developer_list.html:45
-#: .\crud\templates\crud\project_list.html:74
+#: crud/templates/crud/developer_list.html:45
+#: crud/templates/crud/project_list.html:74
 msgid "Choose action"
 msgstr "Chọn hành động"
 
-#: .\crud\templates\crud\developer_list.html:47
-#: .\crud\templates\crud\project_list.html:76
+#: crud/templates/crud/developer_list.html:47
+#: crud/templates/crud/project_list.html:76
 msgid "Update"
 msgstr "Cập nhật"
 
-#: .\crud\templates\crud\developer_list.html:48
-#: .\crud\templates\crud\project_list.html:77
+#: crud/templates/crud/developer_list.html:48
+#: crud/templates/crud/project_list.html:77
 msgid "Remove"
 msgstr "Xóa"
 
-#: .\crud\templates\crud\project_list.html:24
-#: .\crud\templates\crud\project_list.html:55
+#: crud/templates/crud/project_list.html:24
+#: crud/templates/crud/project_list.html:55
 msgid "Start Date"
 msgstr "Bắt đầu"
 
-#: .\crud\templates\crud\project_list.html:28
+#: crud/templates/crud/project_list.html:28
 msgid "End Date"
 msgstr "Kết thúc"
 
-#: .\crud\templates\crud\project_list.html:32
+#: crud/templates/crud/project_list.html:32
 msgid "Filter"
 msgstr "Lọc"
 
-#: .\crud\templates\crud\project_list.html:34
+#: crud/templates/crud/project_list.html:34
 msgid "Clear Filter"
 msgstr "Hủy lọc"
 
-#: .\crud\templates\crud\project_list.html:38
+#: crud/templates/crud/project_list.html:38
 msgid "Currency"
 msgstr "Tỷ giá"
 
-#: .\crud\templates\crud\project_list.html:54
+#: crud/templates/crud/project_list.html:54
 msgid "Description"
 msgstr "Mô tả"
 
-#: .\crud\templates\crud\project_list.html:56
+#: crud/templates/crud/project_list.html:56
 msgid "End date"
 msgstr "Kết thúc"
 
-#: .\crud\templates\crud\project_list.html:57
+#: crud/templates/crud/project_list.html:57
 msgid "Cost"
 msgstr "Giá"
