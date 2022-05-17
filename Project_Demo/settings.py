@@ -22,7 +22,7 @@ API_KEY = '1Rh0P0R6bqhq6AulfXL9gwCBpFyEuAHXqmdcaNn1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
